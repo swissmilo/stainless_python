@@ -1,5 +1,5 @@
 [project]
-name = "milo-jan-22-python"
+name = "swissmilo"
 version = "0.0.1"
 description = "The official Python library for the milo-jan-22 API"
 readme = "README.md"
@@ -39,8 +39,8 @@ classifiers = [
 
 
 [project.urls]
-Homepage = "https://github.com/milo-jan-22/milo-jan-22-python"
-Repository = "https://github.com/milo-jan-22/milo-jan-22-python"
+Homepage = "https://github.com/swissmilo/stainless_python"
+Repository = "https://github.com/swissmilo/stainless_python"
 
 
 
@@ -72,6 +72,10 @@ format = { chain = [
 "format:ruff" = "ruff format"
 "format:isort" = "isort ."
 
+"lint" = { chain = [
+  "check:ruff",
+  "typecheck",
+]}
 "check:ruff" = "ruff ."
 "fix:ruff" = "ruff --fix ."
 
@@ -144,6 +148,8 @@ select = [
   # print statements
   "T201",
   "T203",
+  # misuse of typing.TYPE_CHECKING
+  "TCH004"
 ]
 ignore = [
   # mutable defaults
