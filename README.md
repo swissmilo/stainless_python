@@ -1,6 +1,6 @@
 # Milo Jan 22 Python API library
 
-[![PyPI version](https://img.shields.io/pypi/v/milo-jan-22-python.svg)](https://pypi.org/project/milo-jan-22-python/)
+[![PyPI version](https://img.shields.io/pypi/v/swissmilo.svg)](https://pypi.org/project/swissmilo/)
 
 The Milo Jan 22 Python library provides convenient access to the Milo Jan 22 REST API from any Python 3.7+
 application. The library includes type definitions for all request params and response fields,
@@ -8,17 +8,17 @@ and offers both synchronous and asynchronous clients powered by [httpx](https://
 
 ## Documentation
 
-The REST API documentation can be found [on docs.milo-jan-22.com](https://docs.milo-jan-22.com). The full API of this library can be found in [api.md](https://www.github.com/milo-jan-22/milo-jan-22-python/blob/main/api.md).
+The REST API documentation can be found [on docs.milo-jan-22.com](https://docs.milo-jan-22.com). The full API of this library can be found in [api.md](api.md).
 
 ## Installation
 
 ```sh
-pip install milo-jan-22-python
+pip install swissmilo
 ```
 
 ## Usage
 
-The full API of this library can be found in [api.md](https://www.github.com/milo-jan-22/milo-jan-22-python/blob/main/api.md).
+The full API of this library can be found in [api.md](api.md).
 
 ```python
 from milo_jan_22 import MiloJan22
@@ -199,9 +199,9 @@ pet = response.parse()  # get the object that `pets.retrieve()` would have retur
 print(pet.id)
 ```
 
-These methods return an [`APIResponse`](https://github.com/milo-jan-22/milo-jan-22-python/tree/main/src/milo_jan_22/_response.py) object.
+These methods return an [`APIResponse`](https://github.com/swissmilo/stainless_python/tree/main/src/milo_jan_22/_response.py) object.
 
-The async client returns an [`AsyncAPIResponse`](https://github.com/milo-jan-22/milo-jan-22-python/tree/main/src/milo_jan_22/_response.py) with the same structure, the only difference being `await`able methods for reading the response content.
+The async client returns an [`AsyncAPIResponse`](https://github.com/swissmilo/stainless_python/tree/main/src/milo_jan_22/_response.py) with the same structure, the only difference being `await`able methods for reading the response content.
 
 #### `.with_streaming_response`
 
@@ -257,7 +257,7 @@ This package generally follows [SemVer](https://semver.org/spec/v2.0.0.html) con
 
 We take backwards-compatibility seriously and work hard to ensure you can rely on a smooth upgrade experience.
 
-We are keen for your feedback; please open an [issue](https://www.github.com/milo-jan-22/milo-jan-22-python/issues) with questions, bugs, or suggestions.
+We are keen for your feedback; please open an [issue](https://www.github.com/swissmilo/stainless_python/issues) with questions, bugs, or suggestions.
 
 ## Requirements
 
