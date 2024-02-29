@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.0 (2024-02-29)
+
+Full Changelog: [v0.2.0...v0.3.0](https://github.com/swissmilo/stainless_python/compare/v0.2.0...v0.3.0)
+
+### Features
+
+* update via SDK Studio ([#8](https://github.com/swissmilo/stainless_python/issues/8)) ([a024529](https://github.com/swissmilo/stainless_python/commit/a02452994683c591dbb9364e82425d25defa5a75))
+
 ## 0.2.0 (2024-02-29)
 
 Full Changelog: [v0.1.0...v0.2.0](https://github.com/swissmilo/stainless_python/compare/v0.1.0...v0.2.0)

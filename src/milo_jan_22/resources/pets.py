@@ -51,39 +51,6 @@ class Pets(SyncAPIResource):
             cast_to=NoneType,
         )
 
-    def retrieve(
-        self,
-        pet_id: str,
-        *,
-        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
-        # The extra values given here take precedence over values defined on the client or passed to this method.
-        extra_headers: Headers | None = None,
-        extra_query: Query | None = None,
-        extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> Pet:
-        """
-        Info for a specific pet
-
-        Args:
-          extra_headers: Send extra headers
-
-          extra_query: Add additional query parameters to the request
-
-          extra_body: Add additional JSON properties to the request
-
-          timeout: Override the client-level default timeout for this request, in seconds
-        """
-        if not pet_id:
-            raise ValueError(f"Expected a non-empty value for `pet_id` but received {pet_id!r}")
-        return self._get(
-            f"/pets/{pet_id}",
-            options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
-            ),
-            cast_to=Pet,
-        )
-
     def list(
         self,
         *,
@@ -121,6 +88,39 @@ class Pets(SyncAPIResource):
             cast_to=pets.Pets,
         )
 
+    def retrieveme(
+        self,
+        pet_id: str,
+        *,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> Pet:
+        """
+        Info for a specific pet
+
+        Args:
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not pet_id:
+            raise ValueError(f"Expected a non-empty value for `pet_id` but received {pet_id!r}")
+        return self._get(
+            f"/pets/{pet_id}",
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=Pet,
+        )
+
 
 class AsyncPets(AsyncAPIResource):
     @cached_property
@@ -149,39 +149,6 @@ class AsyncPets(AsyncAPIResource):
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
             cast_to=NoneType,
-        )
-
-    async def retrieve(
-        self,
-        pet_id: str,
-        *,
-        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
-        # The extra values given here take precedence over values defined on the client or passed to this method.
-        extra_headers: Headers | None = None,
-        extra_query: Query | None = None,
-        extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> Pet:
-        """
-        Info for a specific pet
-
-        Args:
-          extra_headers: Send extra headers
-
-          extra_query: Add additional query parameters to the request
-
-          extra_body: Add additional JSON properties to the request
-
-          timeout: Override the client-level default timeout for this request, in seconds
-        """
-        if not pet_id:
-            raise ValueError(f"Expected a non-empty value for `pet_id` but received {pet_id!r}")
-        return await self._get(
-            f"/pets/{pet_id}",
-            options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
-            ),
-            cast_to=Pet,
         )
 
     async def list(
@@ -221,6 +188,39 @@ class AsyncPets(AsyncAPIResource):
             cast_to=pets.Pets,
         )
 
+    async def retrieveme(
+        self,
+        pet_id: str,
+        *,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> Pet:
+        """
+        Info for a specific pet
+
+        Args:
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not pet_id:
+            raise ValueError(f"Expected a non-empty value for `pet_id` but received {pet_id!r}")
+        return await self._get(
+            f"/pets/{pet_id}",
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=Pet,
+        )
+
 
 class PetsWithRawResponse:
     def __init__(self, pets: Pets) -> None:
@@ -229,11 +229,11 @@ class PetsWithRawResponse:
         self.create = to_raw_response_wrapper(
             pets.create,
         )
-        self.retrieve = to_raw_response_wrapper(
-            pets.retrieve,
-        )
         self.list = to_raw_response_wrapper(
             pets.list,
+        )
+        self.retrieveme = to_raw_response_wrapper(
+            pets.retrieveme,
         )
 
 
@@ -244,11 +244,11 @@ class AsyncPetsWithRawResponse:
         self.create = async_to_raw_response_wrapper(
             pets.create,
         )
-        self.retrieve = async_to_raw_response_wrapper(
-            pets.retrieve,
-        )
         self.list = async_to_raw_response_wrapper(
             pets.list,
+        )
+        self.retrieveme = async_to_raw_response_wrapper(
+            pets.retrieveme,
         )
 
 
@@ -259,11 +259,11 @@ class PetsWithStreamingResponse:
         self.create = to_streamed_response_wrapper(
             pets.create,
         )
-        self.retrieve = to_streamed_response_wrapper(
-            pets.retrieve,
-        )
         self.list = to_streamed_response_wrapper(
             pets.list,
+        )
+        self.retrieveme = to_streamed_response_wrapper(
+            pets.retrieveme,
         )
 
 
@@ -274,9 +274,9 @@ class AsyncPetsWithStreamingResponse:
         self.create = async_to_streamed_response_wrapper(
             pets.create,
         )
-        self.retrieve = async_to_streamed_response_wrapper(
-            pets.retrieve,
-        )
         self.list = async_to_streamed_response_wrapper(
             pets.list,
+        )
+        self.retrieveme = async_to_streamed_response_wrapper(
+            pets.retrieveme,
         )
