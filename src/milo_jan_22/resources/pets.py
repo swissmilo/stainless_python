@@ -88,7 +88,7 @@ class Pets(SyncAPIResource):
             cast_to=pets.Pets,
         )
 
-    def retrievewithmenot(
+    def retrievewithmenottest(
         self,
         pet_id: str,
         *,
@@ -188,7 +188,7 @@ class AsyncPets(AsyncAPIResource):
             cast_to=pets.Pets,
         )
 
-    async def retrievewithmenot(
+    async def retrievewithmenottest(
         self,
         pet_id: str,
         *,
@@ -232,8 +232,8 @@ class PetsWithRawResponse:
         self.list = to_raw_response_wrapper(
             pets.list,
         )
-        self.retrievewithmenot = to_raw_response_wrapper(
-            pets.retrievewithmenot,
+        self.retrievewithmenottest = to_raw_response_wrapper(
+            pets.retrievewithmenottest,
         )
 
 
@@ -247,8 +247,8 @@ class AsyncPetsWithRawResponse:
         self.list = async_to_raw_response_wrapper(
             pets.list,
         )
-        self.retrievewithmenot = async_to_raw_response_wrapper(
-            pets.retrievewithmenot,
+        self.retrievewithmenottest = async_to_raw_response_wrapper(
+            pets.retrievewithmenottest,
         )
 
 
@@ -262,8 +262,8 @@ class PetsWithStreamingResponse:
         self.list = to_streamed_response_wrapper(
             pets.list,
         )
-        self.retrievewithmenot = to_streamed_response_wrapper(
-            pets.retrievewithmenot,
+        self.retrievewithmenottest = to_streamed_response_wrapper(
+            pets.retrievewithmenottest,
         )
 
 
@@ -277,6 +277,6 @@ class AsyncPetsWithStreamingResponse:
         self.list = async_to_streamed_response_wrapper(
             pets.list,
         )
-        self.retrievewithmenot = async_to_streamed_response_wrapper(
-            pets.retrievewithmenot,
+        self.retrievewithmenottest = async_to_streamed_response_wrapper(
+            pets.retrievewithmenottest,
         )
