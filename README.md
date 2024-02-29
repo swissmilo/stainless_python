@@ -43,7 +43,7 @@ client = AsyncMiloJan22()
 
 
 async def main() -> None:
-    pet = await client.pets.retrievewithme(
+    pet = await client.pets.retrievewithNOTme(
         "REPLACE_ME",
     )
     print(pet.id)
