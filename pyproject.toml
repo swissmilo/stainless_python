@@ -1,6 +1,6 @@
 [project]
 name = "swissmilo"
-version = "0.3.0"
+version = "0.4.0"
 description = "The official Python library for the milo-jan-22 API"
 readme = "README.md"
 license = "Apache-2.0"
