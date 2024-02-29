@@ -25,7 +25,7 @@ from milo_jan_22 import MiloJan22
 
 client = MiloJan22()
 
-pet = client.pets.retrievewithme(
+pet = client.pets.retrievewithmenot(
     "REPLACE_ME",
 )
 print(pet.id)
@@ -43,7 +43,8 @@ client = AsyncMiloJan22()
 
 
 async def main() -> None:
-    pet = await client.pets.retrievewithNOTme(
+    pet = await client.pets.retrievewithmenot(
+
         "REPLACE_ME",
     )
     print(pet.id)
@@ -79,7 +80,7 @@ from milo_jan_22 import MiloJan22
 client = MiloJan22()
 
 try:
-    client.pets.retrievewithme(
+    client.pets.retrievewithmenot(
         "REPLACE_ME",
     )
 except milo_jan_22.APIConnectionError as e:
@@ -124,7 +125,7 @@ client = MiloJan22(
 )
 
 # Or, configure per-request:
-client.with_options(max_retries=5).pets.retrievewithme(
+client.with_options(max_retries=5).pets.retrievewithmenot(
     "REPLACE_ME",
 )
 ```
@@ -149,7 +150,7 @@ client = MiloJan22(
 )
 
 # Override per-request:
-client.with_options(timeout=5 * 1000).pets.retrievewithme(
+client.with_options(timeout=5 * 1000).pets.retrievewithmenot(
     "REPLACE_ME",
 )
 ```
@@ -190,12 +191,12 @@ The "raw" Response object can be accessed by prefixing `.with_raw_response.` to 
 from milo_jan_22 import MiloJan22
 
 client = MiloJan22()
-response = client.pets.with_raw_response.retrievewithme(
+response = client.pets.with_raw_response.retrievewithmenot(
     "REPLACE_ME",
 )
 print(response.headers.get('X-My-Header'))
 
-pet = response.parse()  # get the object that `pets.retrievewithme()` would have returned
+pet = response.parse()  # get the object that `pets.retrievewithmenot()` would have returned
 print(pet.id)
 ```
 
@@ -210,7 +211,7 @@ The above interface eagerly reads the full response body when you make the reque
 To stream the response body, use `.with_streaming_response` instead, which requires a context manager and only reads the response body once you call `.read()`, `.text()`, `.json()`, `.iter_bytes()`, `.iter_text()`, `.iter_lines()` or `.parse()`. In the async client, these are async methods.
 
 ```python
-with client.pets.with_streaming_response.retrievewithme(
+with client.pets.with_streaming_response.retrievewithmenot(
     "REPLACE_ME",
 ) as response:
     print(response.headers.get("X-My-Header"))
