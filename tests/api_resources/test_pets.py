@@ -75,15 +75,15 @@ class TestPets:
         assert cast(Any, response.is_closed) is True
 
     @parametrize
-    def test_method_retrievewithme(self, client: MiloJan22) -> None:
-        pet = client.pets.retrievewithme(
+    def test_method_retrievewithmenot(self, client: MiloJan22) -> None:
+        pet = client.pets.retrievewithmenot(
             "string",
         )
         assert_matches_type(Pet, pet, path=["response"])
 
     @parametrize
-    def test_raw_response_retrievewithme(self, client: MiloJan22) -> None:
-        response = client.pets.with_raw_response.retrievewithme(
+    def test_raw_response_retrievewithmenot(self, client: MiloJan22) -> None:
+        response = client.pets.with_raw_response.retrievewithmenot(
             "string",
         )
 
@@ -93,8 +93,8 @@ class TestPets:
         assert_matches_type(Pet, pet, path=["response"])
 
     @parametrize
-    def test_streaming_response_retrievewithme(self, client: MiloJan22) -> None:
-        with client.pets.with_streaming_response.retrievewithme(
+    def test_streaming_response_retrievewithmenot(self, client: MiloJan22) -> None:
+        with client.pets.with_streaming_response.retrievewithmenot(
             "string",
         ) as response:
             assert not response.is_closed
@@ -106,9 +106,9 @@ class TestPets:
         assert cast(Any, response.is_closed) is True
 
     @parametrize
-    def test_path_params_retrievewithme(self, client: MiloJan22) -> None:
+    def test_path_params_retrievewithmenot(self, client: MiloJan22) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `pet_id` but received ''"):
-            client.pets.with_raw_response.retrievewithme(
+            client.pets.with_raw_response.retrievewithmenot(
                 "",
             )
 
@@ -174,15 +174,15 @@ class TestAsyncPets:
         assert cast(Any, response.is_closed) is True
 
     @parametrize
-    async def test_method_retrievewithme(self, async_client: AsyncMiloJan22) -> None:
-        pet = await async_client.pets.retrievewithme(
+    async def test_method_retrievewithmenot(self, async_client: AsyncMiloJan22) -> None:
+        pet = await async_client.pets.retrievewithmenot(
             "string",
         )
         assert_matches_type(Pet, pet, path=["response"])
 
     @parametrize
-    async def test_raw_response_retrievewithme(self, async_client: AsyncMiloJan22) -> None:
-        response = await async_client.pets.with_raw_response.retrievewithme(
+    async def test_raw_response_retrievewithmenot(self, async_client: AsyncMiloJan22) -> None:
+        response = await async_client.pets.with_raw_response.retrievewithmenot(
             "string",
         )
 
@@ -192,8 +192,8 @@ class TestAsyncPets:
         assert_matches_type(Pet, pet, path=["response"])
 
     @parametrize
-    async def test_streaming_response_retrievewithme(self, async_client: AsyncMiloJan22) -> None:
-        async with async_client.pets.with_streaming_response.retrievewithme(
+    async def test_streaming_response_retrievewithmenot(self, async_client: AsyncMiloJan22) -> None:
+        async with async_client.pets.with_streaming_response.retrievewithmenot(
             "string",
         ) as response:
             assert not response.is_closed
@@ -205,8 +205,8 @@ class TestAsyncPets:
         assert cast(Any, response.is_closed) is True
 
     @parametrize
-    async def test_path_params_retrievewithme(self, async_client: AsyncMiloJan22) -> None:
+    async def test_path_params_retrievewithmenot(self, async_client: AsyncMiloJan22) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `pet_id` but received ''"):
-            await async_client.pets.with_raw_response.retrievewithme(
+            await async_client.pets.with_raw_response.retrievewithmenot(
                 "",
             )
