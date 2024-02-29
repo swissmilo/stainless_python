@@ -25,7 +25,7 @@ from milo_jan_22 import MiloJan22
 
 client = MiloJan22()
 
-pet = client.pets.retrievewithmeagainnot(
+pet = client.pets.retrievewithmenot(
     "REPLACE_ME",
 )
 print(pet.id)
@@ -44,7 +44,6 @@ client = AsyncMiloJan22()
 
 async def main() -> None:
     pet = await client.pets.retrievewithmenot(
-
         "REPLACE_ME",
     )
     print(pet.id)
