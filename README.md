@@ -1,4 +1,4 @@
-# Milo Jan 22 Python API library
+# Milo Python API demo library
 
 [![PyPI version](https://img.shields.io/pypi/v/swissmilo.svg)](https://pypi.org/project/swissmilo/)
 
