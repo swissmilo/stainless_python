@@ -88,7 +88,7 @@ class Pets(SyncAPIResource):
             cast_to=pets.Pets,
         )
 
-    def retrieveme(
+    def retrievewithme(
         self,
         pet_id: str,
         *,
@@ -188,7 +188,7 @@ class AsyncPets(AsyncAPIResource):
             cast_to=pets.Pets,
         )
 
-    async def retrieveme(
+    async def retrievewithme(
         self,
         pet_id: str,
         *,
@@ -232,8 +232,8 @@ class PetsWithRawResponse:
         self.list = to_raw_response_wrapper(
             pets.list,
         )
-        self.retrieveme = to_raw_response_wrapper(
-            pets.retrieveme,
+        self.retrievewithme = to_raw_response_wrapper(
+            pets.retrievewithme,
         )
 
 
@@ -247,8 +247,8 @@ class AsyncPetsWithRawResponse:
         self.list = async_to_raw_response_wrapper(
             pets.list,
         )
-        self.retrieveme = async_to_raw_response_wrapper(
-            pets.retrieveme,
+        self.retrievewithme = async_to_raw_response_wrapper(
+            pets.retrievewithme,
         )
 
 
@@ -262,8 +262,8 @@ class PetsWithStreamingResponse:
         self.list = to_streamed_response_wrapper(
             pets.list,
         )
-        self.retrieveme = to_streamed_response_wrapper(
-            pets.retrieveme,
+        self.retrievewithme = to_streamed_response_wrapper(
+            pets.retrievewithme,
         )
 
 
@@ -277,6 +277,6 @@ class AsyncPetsWithStreamingResponse:
         self.list = async_to_streamed_response_wrapper(
             pets.list,
         )
-        self.retrieveme = async_to_streamed_response_wrapper(
-            pets.retrieveme,
+        self.retrievewithme = async_to_streamed_response_wrapper(
+            pets.retrievewithme,
         )
