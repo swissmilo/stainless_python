@@ -6,7 +6,10 @@ import httpx
 
 from ..types import Pet, pets, pet_list_params
 from .._types import NOT_GIVEN, Body, Query, Headers, NoneType, NotGiven
-from .._utils import maybe_transform
+from .._utils import (
+    maybe_transform,
+    async_maybe_transform,
+)
 from .._compat import cached_property
 from .._resource import SyncAPIResource, AsyncAPIResource
 from .._response import (
@@ -30,26 +33,6 @@ class Pets(SyncAPIResource):
     @cached_property
     def with_streaming_response(self) -> PetsWithStreamingResponse:
         return PetsWithStreamingResponse(self)
-
-    def create(
-        self,
-        *,
-        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
-        # The extra values given here take precedence over values defined on the client or passed to this method.
-        extra_headers: Headers | None = None,
-        extra_query: Query | None = None,
-        extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> None:
-        """Create a pet"""
-        extra_headers = {"Accept": "*/*", **(extra_headers or {})}
-        return self._post(
-            "/pets",
-            options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
-            ),
-            cast_to=NoneType,
-        )
 
     def list(
         self,
@@ -86,6 +69,26 @@ class Pets(SyncAPIResource):
                 query=maybe_transform({"limit": limit}, pet_list_params.PetListParams),
             ),
             cast_to=pets.Pets,
+        )
+
+    def create2(
+        self,
+        *,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> None:
+        """Create a pet"""
+        extra_headers = {"Accept": "*/*", **(extra_headers or {})}
+        return self._post(
+            "/pets",
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=NoneType,
         )
 
     def retrievewithmenottest(
@@ -131,26 +134,6 @@ class AsyncPets(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncPetsWithStreamingResponse:
         return AsyncPetsWithStreamingResponse(self)
 
-    async def create(
-        self,
-        *,
-        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
-        # The extra values given here take precedence over values defined on the client or passed to this method.
-        extra_headers: Headers | None = None,
-        extra_query: Query | None = None,
-        extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> None:
-        """Create a pet"""
-        extra_headers = {"Accept": "*/*", **(extra_headers or {})}
-        return await self._post(
-            "/pets",
-            options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
-            ),
-            cast_to=NoneType,
-        )
-
     async def list(
         self,
         *,
@@ -183,9 +166,29 @@ class AsyncPets(AsyncAPIResource):
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=maybe_transform({"limit": limit}, pet_list_params.PetListParams),
+                query=await async_maybe_transform({"limit": limit}, pet_list_params.PetListParams),
             ),
             cast_to=pets.Pets,
+        )
+
+    async def create2(
+        self,
+        *,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> None:
+        """Create a pet"""
+        extra_headers = {"Accept": "*/*", **(extra_headers or {})}
+        return await self._post(
+            "/pets",
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=NoneType,
         )
 
     async def retrievewithmenottest(
@@ -226,11 +229,11 @@ class PetsWithRawResponse:
     def __init__(self, pets: Pets) -> None:
         self._pets = pets
 
-        self.create = to_raw_response_wrapper(
-            pets.create,
-        )
         self.list = to_raw_response_wrapper(
             pets.list,
+        )
+        self.create2 = to_raw_response_wrapper(
+            pets.create2,
         )
         self.retrievewithmenottest = to_raw_response_wrapper(
             pets.retrievewithmenottest,
@@ -241,11 +244,11 @@ class AsyncPetsWithRawResponse:
     def __init__(self, pets: AsyncPets) -> None:
         self._pets = pets
 
-        self.create = async_to_raw_response_wrapper(
-            pets.create,
-        )
         self.list = async_to_raw_response_wrapper(
             pets.list,
+        )
+        self.create2 = async_to_raw_response_wrapper(
+            pets.create2,
         )
         self.retrievewithmenottest = async_to_raw_response_wrapper(
             pets.retrievewithmenottest,
@@ -256,11 +259,11 @@ class PetsWithStreamingResponse:
     def __init__(self, pets: Pets) -> None:
         self._pets = pets
 
-        self.create = to_streamed_response_wrapper(
-            pets.create,
-        )
         self.list = to_streamed_response_wrapper(
             pets.list,
+        )
+        self.create2 = to_streamed_response_wrapper(
+            pets.create2,
         )
         self.retrievewithmenottest = to_streamed_response_wrapper(
             pets.retrievewithmenottest,
@@ -271,11 +274,11 @@ class AsyncPetsWithStreamingResponse:
     def __init__(self, pets: AsyncPets) -> None:
         self._pets = pets
 
-        self.create = async_to_streamed_response_wrapper(
-            pets.create,
-        )
         self.list = async_to_streamed_response_wrapper(
             pets.list,
+        )
+        self.create2 = async_to_streamed_response_wrapper(
+            pets.create2,
         )
         self.retrievewithmenottest = async_to_streamed_response_wrapper(
             pets.retrievewithmenottest,

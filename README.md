@@ -13,6 +13,7 @@ The REST API documentation can be found [on docs.milo-jan-22.com](https://docs.m
 ## Installation
 
 ```sh
+# install from PyPI
 pip install swissmilo
 ```
 
