@@ -20,9 +20,7 @@ from .._response import (
 )
 from ..types.pet import Pet
 from ..types.pets import Pets
-from .._base_client import (
-    make_request_options,
-)
+from .._base_client import make_request_options
 
 __all__ = ["PetsResource", "AsyncPetsResource"]
 

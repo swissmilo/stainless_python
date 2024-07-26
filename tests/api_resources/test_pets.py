@@ -45,14 +45,14 @@ class TestPets:
     @parametrize
     def test_method_retrieve(self, client: Milosthirdproject) -> None:
         pet = client.pets.retrieve(
-            "string",
+            "petId",
         )
         assert_matches_type(Pet, pet, path=["response"])
 
     @parametrize
     def test_raw_response_retrieve(self, client: Milosthirdproject) -> None:
         response = client.pets.with_raw_response.retrieve(
-            "string",
+            "petId",
         )
 
         assert response.is_closed is True
@@ -63,7 +63,7 @@ class TestPets:
     @parametrize
     def test_streaming_response_retrieve(self, client: Milosthirdproject) -> None:
         with client.pets.with_streaming_response.retrieve(
-            "string",
+            "petId",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -144,14 +144,14 @@ class TestAsyncPets:
     @parametrize
     async def test_method_retrieve(self, async_client: AsyncMilosthirdproject) -> None:
         pet = await async_client.pets.retrieve(
-            "string",
+            "petId",
         )
         assert_matches_type(Pet, pet, path=["response"])
 
     @parametrize
     async def test_raw_response_retrieve(self, async_client: AsyncMilosthirdproject) -> None:
         response = await async_client.pets.with_raw_response.retrieve(
-            "string",
+            "petId",
         )
 
         assert response.is_closed is True
@@ -162,7 +162,7 @@ class TestAsyncPets:
     @parametrize
     async def test_streaming_response_retrieve(self, async_client: AsyncMilosthirdproject) -> None:
         async with async_client.pets.with_streaming_response.retrieve(
-            "string",
+            "petId",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
