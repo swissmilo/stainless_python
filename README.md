@@ -10,7 +10,7 @@ It is generated with [Stainless](https://www.stainlessapi.com/).
 
 ## Documentation
 
-The REST API documentation can be found [on docs.milosthirdproject.com](https://docs.milosthirdproject.com). The full API of this library can be found in [api.md](api.md).
+The REST API documentation can be found on [docs.milosthirdproject.com](https://docs.milosthirdproject.com). The full API of this library can be found in [api.md](api.md).
 
 ## Installation
 
@@ -268,7 +268,7 @@ You can directly override the [httpx client](https://www.python-httpx.org/api/#c
 
 - Support for proxies
 - Custom transports
-- Additional [advanced](https://www.python-httpx.org/advanced/#client-instances) functionality
+- Additional [advanced](https://www.python-httpx.org/advanced/clients/) functionality
 
 ```python
 from milosthirdproject import Milosthirdproject, DefaultHttpxClient
