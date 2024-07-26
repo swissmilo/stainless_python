@@ -20,7 +20,7 @@ or products provided by Milosthirdproject please follow the respective company's
 
 ### Milosthirdproject Terms and Policies
 
-Please contact dev-feedback@milosthirdproject.com! for any questions or concerns regarding security of our services.
+Please contact dev-feedback@milosthirdproject.com for any questions or concerns regarding security of our services.
 
 ---
 
